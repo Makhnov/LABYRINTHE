@@ -1,8 +1,14 @@
+const grid = document.getElementById('container');
+const largeur = 40;
+const hauteur = 30;
+const caseL = 90 / largeur;
+const caseH = 90 / hauteur; 
+
 function affichage(tab) {
     grid.style.gridTemplateColumns = '(repeat' + largeur + ',' + space + caseL + 'vw)';
     grid.style.gridTemplateRows = '(repeat' + hauteur + ',' + space + caseH + 'vh)';
 
-    
+
     for (let i = 0; i < largeur; i++) {
         for (let j = 0; j < hauteur; j++) {
             let div = document.createElement('div');
@@ -16,6 +22,32 @@ function affichage(tab) {
         }
     }
 }
+
+const imge = document.getElementById("1");
+x = 0;
+y = 0;
+window.addEventListener('keydown', function (e) {
+    if (e.key == "ArrowLeft") {
+        x -= caseL;
+        imge.style.transform = "translateX(" + x + "vw) translateY(" + y + "vh)";
+    }
+
+    if (e.key == "ArrowRight") {
+        x += caseL;
+        imge.style.transform = "translateX(" + x + "vw) translateY(" + y + "vh)";
+    }
+
+    if (e.key == "ArrowDown") {
+        y += caseH;
+        imge.style.transform = "translateY(" + y + "vh) translateX(" + x + "vw)";
+    }
+
+    if (e.key == "ArrowUp") {
+        y -= caseH;
+        imge.style.transform = "translateY(" + y + "vh) translateX(" + x + "vw)";
+    }
+});
+
 
 function checkColor(tab, a, b) {
     if (tab[a][b] === 'o') {
