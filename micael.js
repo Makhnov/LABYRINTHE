@@ -1,6 +1,7 @@
 let divWin = document.getElementById("divWin");
+let nbDePasTotal = document.getElementById("nbDePasTotal");
 
 function win(){
-    divWin.classList.add("pasCacher")
+    nbDePasTotal.textContent = "nombre de pas :" + " "+ "1";
+    divWin.classList.add("pasCacher");
 }
-
