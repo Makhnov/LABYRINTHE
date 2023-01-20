@@ -40,13 +40,19 @@ function creerLigne() {
     ligneTab = [];
 }
 
-bordure();
+function creerTableau() {
 
-for (i = 0; i < (colonne - 2); i++) {
-    creerLigne();
+    bordure();
+
+    for (i = 0; i < (colonne - 2); i++) {
+        creerLigne();
+    }
+
+    bordure();
+
+    console.log(tab);
+    return tab;
 }
 
-bordure();
-
-console.log(tab);
+creerTableau();
 
