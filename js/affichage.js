@@ -47,7 +47,9 @@ function checkColor(tab, a, b) {
         return 'grey';
     } else if (tab[a][b] === 'b') {
         return 'black'
-    } else {
+    } else if (tab[a][b] === 1 ) {
         return 'white';
+    } else {
+        return 'lightgrey';
     }
 }

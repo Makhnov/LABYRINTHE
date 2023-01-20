@@ -35,13 +35,16 @@ button:nth-of-type(1) {
 }
 
 button:nth-of-type(2) {
-    left:calc(99vw - 225px);
+    left:calc(99vw - 210px);
+}
+
+button:nth-of-type(3) {
+    left:calc(99vw - 320px);
 }
 
 #container {
     height: 90vh;
     width: 90vw;
-    background: lightgray;
     display: grid;
     place-content: center;
 }

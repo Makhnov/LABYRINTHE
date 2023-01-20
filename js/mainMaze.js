@@ -52,13 +52,17 @@ function creerLabyrinthe() {
 function labyrinthe (x, y) {
     chemin = [];
     chemin.push([x,y]);
-    expand(x,y);
+    expand();
 }
 
-function expand(x, y) {
-    let exit = 0;
+function expand() {
+    console.log('EXPAND');
+    let x = chemin[(chemin.length - 1)][0];
+    let y = chemin[(chemin.length - 1)][1];
+
+    let newX = 0;
+    let newY = 0;
     let rand = 0;
-    let odds = 0;
 
     console.log(x,y);
 
@@ -69,69 +73,54 @@ function expand(x, y) {
         [0,-1]
     ];
 
-    console.log('tab : '+cheminTemp);
-
     for (let i = (cheminTemp.length - 1); i > -1; i--) {
-        let newX = x + cheminTemp[i][0];
-        let newY = y + cheminTemp[i][1];
-        /*
-        console.log(
-            'x :'+newX+br+
-            'y :'+newY+br+
-            'i :'+i+br+
-            'tab :'+cheminTemp
-        );
-        */
-        if (tab[newX] === undefined) {
-            cheminTemp.splice(i,1);
-            console.log('undefined :' + cheminTemp);      
-        } else if (tab[newX][newY] === 'o') {
-            console.log(tab[newX][newY] + ' : ' + cheminTemp);
-            exit++;
-        } else if (tab[newX][newY] === 'b') {
-            cheminTemp.splice(i,1);
-            console.log(tab[newX][newY] + ' : ' + cheminTemp);
+        newX = x + cheminTemp[i][0];
+        newY = y + cheminTemp[i][1];
+
+        if (
+        tab[newX] === undefined || 
+        tab[newX][newY] === 'b' || 
+        tab[newX][newY] === 1 
+        ) {
+            cheminTemp.splice(i,1); 
         }
     }
 
-    console.log(cheminTemp);
+    switch (cheminTemp.length) {
 
-
-    if (exit === 1) {
-        odds = 1;
-    } else if (exit === 2) {
-        odds = 2/3;
-    } else if (exit === 3) {
-        odds = 1/4;
-    }
-
-
-
-    for (let i = (cheminTemp.length - 1); i > -1; i--) {
-        let newX = x + cheminTemp[i][0];
-        let newY = y + cheminTemp[i][1];
-
-        rand = Math.random();
-        console.log('rand : ' + rand+br+'odds : '+odds);
-
-        if (rand < odds) {
+        case 0 :
+            console.log('erreur');
+            return;
+        case 1 : 
+            newX = x + cheminTemp[0][0];
+            newY = y + cheminTemp[0][1];
             tab[newX][newY] = 1;
-            console.log('1 : '+tab[newX][newY])
-        } else {
-            tab[newX][newY] = 0;
-            cheminTemp.splice(i,1);
-            console.log('0 : '+tab[newX][newY])
-        }
+            chemin.push([newX,newY]);
+            console.log('CAS1');
+            affichage(tab);
+            break;
+
+        case 2 : case 3 :
+            rand = Math.trunc(Math.random() * cheminTemp.length);
+
+            for (i = 0; i < cheminTemp.length; i++) {
+                newX = x + cheminTemp[i][0];
+                newY = y + cheminTemp[i][1];
+                if (rand === i) {
+
+                    tab[newX][newY] = 1;
+                    chemin.push([newX,newY]);
+                } else if (Math.random() < (1/(cheminTemp.length + 2))) {
+                    console.log('LUCK');
+                    tab[newX][newY] = 2;
+                } else {
+                    tab[newX][newY] = 'b';
+                    console.log('NO LUCK');
+                }
+            }
+            affichage(tab);
+            break;
     }
-
-    rand = Math.trunc(Math.random() * cheminTemp.length);
-    console.log(rand);
-    console.log(chemin);
-    let newX = x + cheminTemp[rand][0];
-    let newY = y + cheminTemp[rand][1];
-    chemin.push([newX,newY]);
-
-    affichage(tab);
-    expand(newX,newY);
 }
+
 
