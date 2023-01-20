@@ -2,11 +2,12 @@ const colonne = 40; // X
 const ligne = 30; // Y
 
 let tab = [];
+let tabTemp = [];
 let ligneTab = [];
 let case1Tab = [];
 
 function bordure() {
-    for (i = 0; i < ligne; i++) {
+    for (let i = 0; i < ligne; i++) {
         ligneTab.push(0);
     }
     tab.push(ligneTab);
@@ -16,13 +17,13 @@ function bordure() {
 function creerLigne() {
     ligneTab.push(0);
 
-    for (j = 0; j < (ligne - 2); j++) {
+    for (let j = 0; j < (ligne - 2); j++) {
 
         let case0 = Math.round(Math.random());
 
         if (case0 === 1) {
 
-            for (k = 0; k < 4; k++) {
+            for (let k = 0; k < 4; k++) {
                 let case1 = Math.round(Math.random());
                 case1Tab.push(case1);
             }
@@ -42,6 +43,8 @@ function creerLigne() {
 
 function creerTableau() {
 
+    tab = [];
+
     bordure();
 
     for (i = 0; i < (colonne - 2); i++) {
@@ -49,10 +52,13 @@ function creerTableau() {
     }
 
     bordure();
-
-    console.log(tab);
-    return tab;
+    affichage(tab);
 }
 
-creerTableau();
-
+function checkColor(tab, a, b) {
+    if (tab[a][b] === 0) {
+        return 'black';
+    } else { 
+        return 'white';
+    }
+}
