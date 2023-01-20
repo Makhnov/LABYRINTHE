@@ -14,7 +14,7 @@ width: 512px;
 height: 512px;
 z-index: 1;
 margin: auto;
-transition: 1s;
+transition: 0.5s;
 text-align: center;
 }
 #divWin p{
