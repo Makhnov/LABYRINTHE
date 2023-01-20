@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -43,4 +42,4 @@ button:nth-of-type(2) {
   background: lightgray;
   display: grid;
   place-content: center;
-}
+}/*# sourceMappingURL=style.css.map */
