@@ -3,3 +3,19 @@
     height:100vh;
     background-color: lightseagreen;
 }
+
+#divWin{
+background-color: aliceblue;
+border: 5px solid black;
+top: 200px;
+left: -600px;
+position: fixed;
+width: 500px;
+height: 650px;
+z-index: 1;
+margin: auto;
+transition: 1s;
+}
+#divWin.pasCacher{
+    left: 8px;
+}

@@ -1,13 +1,6 @@
-let exit = false;
-
-function fin(exit){
-    if(exit == true){
-        win();
-    }
-}
+let divWin = document.getElementById("divWin");
 
 function win(){
-    alert("Vous avez gagné");
+    divWin.classList.add("pasCacher")
 }
 
-fin(exit)
