@@ -42,7 +42,6 @@ window.addEventListener('keydown', function (e) {
     }
 });
 
-
 function checkColor(tab, a, b) {
     if (tab[a][b] === 'o') {
         return 'grey';
