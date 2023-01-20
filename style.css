@@ -5,16 +5,21 @@
 }
 
 #divWin{
-background-color: aliceblue;
+background-image: url("img/duck.png");
 border: 5px solid black;
 top: 12.5vh;
 left: -600px;
 position: fixed;
-width: 50vh;
-height: 75vh;
+width: 512px;
+height: 512px;
 z-index: 1;
 margin: auto;
 transition: 1s;
+text-align: center;
+}
+#divWin p{
+    font-size: 50px;
+
 }
 #divWin.pasCacher{
     left: 25%;

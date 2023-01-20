@@ -5,3 +5,7 @@ function win(){
     nbDePasTotal.textContent = "nombre de pas :" + " "+ "1";
     divWin.classList.add("pasCacher");
 }
+
+function reset(){
+    location.reload();
+}
