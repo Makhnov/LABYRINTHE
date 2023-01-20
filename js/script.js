@@ -12,6 +12,4 @@ let tab = [];
 let tabTemp = [];
 let ligneTab = [];
 let case1Tab = [];
-
-let exit = false;
 let chemin = [];
