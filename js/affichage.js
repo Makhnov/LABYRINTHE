@@ -1,9 +1,3 @@
-const grid = document.getElementById('container');
-const largeur = 40;
-const hauteur = 30;
-const caseL = 90 / largeur;
-const caseH = 90 / hauteur; 
-
 function affichage(tab) {
     grid.style.gridTemplateColumns = '(repeat' + largeur + ',' + space + caseL + 'vw)';
     grid.style.gridTemplateRows = '(repeat' + hauteur + ',' + space + caseH + 'vh)';
@@ -23,4 +17,12 @@ function affichage(tab) {
     }
 }
 
-
+function checkColor(tab, a, b) {
+    if (tab[a][b] === 'o') {
+        return 'grey';
+    } else if (tab[a][b] === 'b') {
+        return 'black'
+    } else {
+        return 'white';
+    }
+}
